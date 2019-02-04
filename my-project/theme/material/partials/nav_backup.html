@@ -1,0 +1,166 @@
+<!-- Main navigation -->
+<nav class="md-nav md-nav--primary" data-md-level="0">
+
+    <!-- Site title -->
+    <label class="md-nav__title md-nav__title--site" for="__drawer">
+        <a href="{{ config.site_url | default(nav.homepage.url, true) | url }}"
+           title="{{ config.site_name }}" class="md-nav__button md-logo">
+            {% if config.theme.logo.icon %}
+            <i class="md-icon">{{ config.theme.logo.icon }}</i>
+            {% else %}
+            <img src="{{ config.theme.logo | url }}" width="48" height="48" />
+            {% endif %}
+        </a>
+        {{ config.site_name }}
+
+    <!--<label for="Versions">Ver:-->
+        <!--&lt;!&ndash;<select id="versions" onchange="window.location.href=this.options&ndash;&gt;-->
+                <!--&lt;!&ndash;[this.selectedIndex].value" style=" &ndash;&gt;-->
+                      <!--<select id="versions" name="versions" onchange="window.location.href=this.value;" style="-->
+		<!--position: inherit;-->
+		<!--display: inline;-->
+		<!--min-width: 25%;-->
+		<!--/* width: 120%; */-->
+		<!--height: 25px;-->
+		<!--padding: 5px 15px 5px 5px;-->
+		<!--color: Black;-->
+		<!--border: none;-->
+		<!--background: transparent;-->
+		<!--outline: none;-->
+		  <!-- -webkit-appearance: none;-->
+		<!--z-index: 99;-->
+		<!--cursor: pointer;-->
+		<!--font-size: 10px;-->
+		<!--margin-bottom: 10px;-->
+		<!--border: 1px solid black;-->
+		<!--overflow: auto-->
+	<!--">-->
+            <!--<option value="" selected="selected">Select Versions</option>-->
+            <!--<option value="http://127.0.0.1:8000/docs/smsotp/2.0.13">2.0.13</option>-->
+            <!--<option value="http://127.0.0.1:8000/docs/smsotp/2.0.14">2.0.14</option>-->
+            <!--<option value="http://127.0.0.1:8000/docs/smsotp/2.0.15">2.0.15</option>-->
+        <!--</select>-->
+    <!--</label>-->
+
+        <label for="id_of_select">Ver:
+        <select id="id_of_select" onchange="window.location.href=this.value; show_selected(this.value);">
+            <option></option>
+            <option value="/docs/smsotp/2.0.13">two</option>
+            <option value="/docs/smsotp/2.0.14">three</option>
+            <option value="/docs/smsotp/2.0.15">four</option>
+        </select>
+
+        <button id="btn">Show selected</button>
+
+        <div id="display"></div>
+
+        <script>
+
+
+        "use strict";
+
+        function show_selected(id_of_select) {
+        var selector = document.getElementById('id_of_select');
+        var value = selector[selector.selectedIndex].value;
+
+        document.getElementById('display').innerHTML = value.text;
+        }
+
+        document.getElementById('btn').addEventListener('click', show_selected);;
+
+</script>
+    </label>
+        <!--<label for="menu1">Ver:-->
+        <!--<select name="menu1" id="menu1">-->
+            <!--<option value="http://www.espn.com" [1]>ESPN</option>-->
+            <!--<option value="docs/smsotp/2.0.13">CNN</option>-->
+            <!--<option value="docs/smsotp/2.0.14">ABC</option>-->
+            <!--<option value="http://www.cbsnews.com">CBS</option>-->
+            <!--<option value="http://www.foxnews.com">FOX</option>-->
+        <!--</select>-->
+        <!--<script type="text/javascript">-->
+    <!--var urlmenu = document.getElementById('menu1');-->
+    <!--urlmenu.onchange = function() {-->
+      <!--window.location.href = this.options[this.selectedIndex].value;-->
+    <!--};-->
+  <!--</script>-->
+        <!--</label>-->
+
+        <!--<select id="dynamic_select">-->
+            <!--<option value="" selected>Select Versions</option>-->
+            <!--<option value="/docs/smsotp/2.0.13">2.0.13</option>-->
+            <!--<option value="/docs/smsotp/2.0.14">2.0.14</option>-->
+            <!--<option value="/docs/smsotp/2.0.15">2.0.15</option>-->
+        <!--</select>-->
+
+        <!--<script>-->
+    <!--$(function(){-->
+      <!--// bind change event to select-->
+      <!--$('#dynamic_select').on('change', function () {-->
+          <!--var url = $(this).val(); // get selected value-->
+          <!--if (url) { // require a URL-->
+              <!--window.location.href = url; // redirect-->
+          <!--}-->
+          <!--return false;-->
+      <!--});-->
+    <!--});-->
+<!--</script>-->
+
+    </label>
+
+
+    <!--<script>-->
+        <!--&lt;!&ndash;function change(src) {&ndash;&gt;-->
+            <!--&lt;!&ndash;alert(src);&ndash;&gt;-->
+            <!--&lt;!&ndash;document.getElementById("versions").innerHTML = src;&ndash;&gt;-->
+        <!--&lt;!&ndash;}&ndash;&gt;-->
+         <!--function myFunction(selectObject) {-->
+            <!--window.location.href = selectObject;-->
+            <!--console.log(document.getElementById("versions").value);-->
+            <!--&lt;!&ndash;document.getElementById("versions").innerHTML = selectObject&ndash;&gt;-->
+    <!--}-->
+    <!--</script>-->
+
+    <!--<script>-->
+        <!--&lt;!&ndash;document.addEventListener('DOMContentLoaded',function() {&ndash;&gt;-->
+        <!--&lt;!&ndash;document.querySelector('select[name="versions"]').onchange=changeEventHandler;&ndash;&gt;-->
+        <!--&lt;!&ndash;},false);&ndash;&gt;-->
+
+        <!--&lt;!&ndash;function changeEventHandler(event) {&ndash;&gt;-->
+            <!--&lt;!&ndash;// You can use “this” to refer to the selected element.&ndash;&gt;-->
+            <!--&lt;!&ndash;window.location.href = event.target.value;&ndash;&gt;-->
+
+<!--&lt;!&ndash;}&ndash;&gt;-->
+<!--var urlmenu = document.getElementById('versions');-->
+<!--console.log(urlmenu);-->
+
+<!--urlmenu.onchange = function() {-->
+  <!--window.location.href = this.value;-->
+<!--};-->
+
+    <!--</script>-->
+
+    <!--<script type="text/javascript">-->
+    <!--window.onload = function(){-->
+        <!--location.href=document.getElementById("selectbox").value;-->
+    <!--}-->
+<!--</script>-->
+
+
+
+    <!-- Repository containing source -->
+    {% if config.repo_url %}
+    <div class="md-nav__source">
+        {% include "partials/source.html" %}
+    </div>
+    {% endif %}
+
+    <!-- Render item list -->
+    <ul class="md-nav__list" data-md-scrollfix>
+        {% for nav_item in nav %}
+        {% set path = "nav-" + loop.index | string %}
+        {% set level = 1 %}
+        {% include "partials/nav-item.html" %}
+        {% endfor %}
+    </ul>
+</nav>

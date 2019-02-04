@@ -1,0 +1,81 @@
+<!-- Main navigation -->
+<nav class="md-nav md-nav--primary" data-md-level="0">
+
+    <!-- Site title -->
+    <label class="md-nav__title md-nav__title--site" for="__drawer">
+        <a href="{{ config.site_url | default(nav.homepage.url, true) | url }}"
+           title="{{ config.site_name }}" class="md-nav__button md-logo">
+            {% if config.theme.logo.icon %}
+            <i class="md-icon">{{ config.theme.logo.icon }}</i>
+            {% else %}
+            <img src="{{ config.theme.logo | url }}" width="48" height="48" />
+            {% endif %}
+        </a>
+        {{ config.site_name }}
+
+    <label for="Versions">Ver:
+        <select id="versions" name="versions" onchange="window.location.href=this.value;" style="
+		position: inherit;
+		display: inline;
+		min-width: 25%;
+		/* width: 120%; */
+		height: 25px;
+		padding: 5px 15px 5px 5px;
+		color: Black;
+		border: none;
+		background: transparent;
+		outline: none;
+		-webkit-appearance: none;
+		z-index: 99;
+		cursor: pointer;
+		font-size: 10px;
+		margin-bottom: 10px;
+		border: 1px solid black;
+		overflow: auto
+	">
+            <option value="" selected="selected">Select Versions</option>
+            <option value="/docs/smsotp/2.0.13">2.0.13</option>
+            <option value="/docs/smsotp/2.0.14">2.0.14</option>
+            <option value="/docs/smsotp/2.0.15">2.0.15</option>
+        </select>
+    </label>
+    </label>
+
+    <form name="menuform">
+        <select id="menu2" name="menu2"
+                onChange="this.options[this.selectedIndex].text && (window.location.href = this.options[this.selectedIndex].value);">
+                <!--onChange="top.location.href = this.form.menu2.options[this.form.menu2.selectedIndex].value;check(this.value)">-->
+            <option value="" selected="selected">Select Versions</option>
+            <option value="/docs/smsotp/2.0.13">2.0.13</option>
+            <option value="/docs/smsotp/2.0.14">2.0.14</option>
+            <option value="/docs/smsotp/2.0.15">2.0.15</option>
+        </select>
+    </form>
+
+<script>
+    function check(src) {
+            console.log("hello");
+           var sel = document.getElementById("menu2");
+           console.log(sel);
+           var opt = sel.options[sel.selectedIndex];
+           console.log(opt.value);
+           console.log(opt.text);
+           document.getElementById("menu2").innerHTML = opt.selected;
+    }
+</script>
+    <!-- Repository containing source -->
+    {% if config.repo_url %}
+    <div class="md-nav__source">
+        {% include "partials/source.html" %}
+    </div>
+    {% endif %}
+
+    <!-- Render item list -->
+    <ul class="md-nav__list" data-md-scrollfix>
+        {% for nav_item in nav %}
+        {% set path = "nav-" + loop.index | string %}
+        {% set level = 1 %}
+        {% include "partials/nav-item.html" %}
+        {% endfor %}
+    </ul>
+</nav>

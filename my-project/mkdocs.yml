@@ -1,0 +1,13 @@
+site_name: SMSOTP
+extra:
+  palette:
+    primary: teal
+    accent: teal
+pages:
+- Welcome: index.md
+theme:
+  name: material
+  custom_dir: theme/material
+  palette:
+    primary: teal
+    accent: teal
